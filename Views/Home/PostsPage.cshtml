@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = @ViewBag.pid;
+}
+
+<table>
+    <tr>
+        <td>@ViewBag.ProductName</td>
+        <td>by @ViewBag.CreatedBy</td>
+    </tr>    
+</table>
+<table><td><p>@ViewBag.Description</p></td></table>
+
+<table>
+    <tr>
+        <td>Current Highest Bid:</td>
+        <td>@ViewBag.StartingBid</td>
+    </tr>
+    <form action="/newbid/@ViewBag.pid" method="post">
+        <tr>
+            <td>By:</td>
+            <td>@ViewBag.BiddersName</td>
+        </tr>
+        <tr>
+            <td>Bid: <input type="number" name="bidding"></td>
+            <td><a href="newbid/@ViewBag.pid"><button>Bid!</button></a></td>
+        </tr>    
+    </form>
+</table>

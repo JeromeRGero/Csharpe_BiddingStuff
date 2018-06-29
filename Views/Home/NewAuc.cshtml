@@ -1,0 +1,34 @@
+@model Prod
+<h2>Register</h2>
+ @if(ViewBag.AlreadyInUseEmail == true) {<p>Email already in use!</p>}  
+
+
+<form action="SubmitProduct" method="post">
+    <table>
+        <tr>
+            <td><label>Product Name:</label></td>
+            <td><input asp-for="ProductName"></td>
+            <td><span asp-validation-for="ProductName"></span></td>
+        </tr>
+        <tr>
+            <td><label>Description:</label></td>
+            <td><textarea asp-for="Description"></textarea></td>
+            <td><span asp-validation-for="Description"></span></td>
+        </tr>
+        <tr>
+            <td><label>Starting Bid:</label></td>
+            <td><input type="number" asp-for="StartingBid"></td>
+            <td><span asp-validation-for="StartingBid"></span></td>
+        </tr>
+        <tr>
+            <td><label>End Date:</label></td>
+            <td><input type="date" asp-for="EndDate"></td>
+            <td><span asp-validation-for="EndDate"></span></td>
+        </tr>
+        <tr>
+            <td><label>Password:</label></td>
+            <td><input type="submit"></td>
+            <td></td>
+        </tr>
+    </table>
+</form> 

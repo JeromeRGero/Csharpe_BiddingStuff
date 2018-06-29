@@ -1,0 +1,35 @@
+<h3>Hi @ViewBag.Username</h3>
+
+
+<table>
+    <thead>
+        <th>Product</th>
+        <th>Seller</th>
+        <th>Top Bid</th>
+        <th>Time Remaining</th>
+        <th>Options</th>
+    </thead>
+    <tbody>
+        @foreach(var post in ViewBag.AllProd)
+        { 
+            <tr>
+                <td><a href="/PostsPage/@post.ProdId">@post.ProductName</a></td>
+                <td>@post.User.FirstName</td>
+                <td>@post.StartingBid</td>
+                <td>
+                    @post.EndDate.Subtract(DateTime.Today).Days Days
+                </td>
+                @if(@post.PostersId != @ViewBag.curUserId)
+                {
+                    <td>None</td>
+                }
+                else
+                {
+                    <td><a href="/Delete/@post.ProdId">Delete</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/NewAuc"><button>New Auction</button></a>
+<p>$@ViewBag.curMoney</p>

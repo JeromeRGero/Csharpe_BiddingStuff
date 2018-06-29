@@ -1,0 +1,63 @@
+﻿@model User
+<h2>Register</h2>
+ @if(ViewBag.AlreadyInUseEmail == true) {<p>Email already in use!</p>}  
+
+
+<form action="RegisterUser" method="post">
+    <table>
+        <tr>
+            <td><label>First Name:</label></td>
+            <td><input asp-for="FirstName"></td>
+            <td><span asp-validation-for="FirstName"></span></td>
+        </tr>
+        <tr>
+            <td><label>Last Name:</label></td>
+            <td><input asp-for="LastName"></td>
+            <td><span asp-validation-for="LastName"></span></td>
+        </tr>
+        <tr>
+            <td><label>Email:</label></td>
+            <td><input asp-for="Email"></td>
+            <td><span asp-validation-for="Email"></span></td>
+        </tr>
+        <tr>
+            <td><label>Password:</label></td>
+            <td><input type="password" asp-for="Password"></td>
+            <td><span asp-validation-for="Password"></span></td>
+        </tr>
+        <tr>
+            <td><label>Confirm Password:</label></td>
+            <td><input type="password" name="ConfirmPassword"></td>
+            <td>
+                @if(ViewBag.PasswordError != null) {
+                    <p>@ViewBag.PasswordError</p>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td><label>Password:</label></td>
+            <td><input type="submit"></td>
+            <td></td>
+        </tr>
+    </table>
+</form> 
+<h2>Login</h2>
+<form action="LoginUser" method="post">
+    <table>
+        <tr>
+            <td><label>Email:</label></td>
+            <td><input type="text" name="Email"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label>Password:</label></td>
+            <td><input type="password" name="Password"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit"></td>
+            <td><p>@ViewBag.loginError</p></td>
+        </tr>
+    </table>
+</form>
